@@ -12,11 +12,26 @@ const { errorHandler, notFound } = require('./middleware/errorHandler');
 const apiRoutes = require('./routes');
 
 const app = express();
+const allowedOrigins = env.clientOrigin
+  .split(',')
+  .map((origin) => origin.trim())
+  .filter(Boolean);
 
 app.use(helmet());
 app.use(
   cors({
-    origin: env.clientOrigin,
+    origin: (origin, callback) => {
+      // Allow non-browser requests (e.g., curl, health checks) without Origin header.
+      if (!origin) {
+        return callback(null, true);
+      }
+
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+
+      return callback(new Error('Not allowed by CORS'));
+    },
     credentials: true
   })
 );
