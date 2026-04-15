@@ -1,0 +1,141 @@
+:root {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #12233d;
+  background: linear-gradient(135deg, #eef7ff 0%, #f8fffb 100%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+.auth-shell {
+  max-width: 420px;
+  margin: 4rem auto;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  min-height: 80vh;
+}
+
+.auth-shell .card {
+  width: 100%;
+}
+
+.dashboard-shell {
+  max-width: 920px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(18, 35, 61, 0.1);
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+input,
+textarea,
+select,
+button {
+  width: 100%;
+  border: 1px solid #c8d7e8;
+  border-radius: 8px;
+  padding: 0.7rem 0.8rem;
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: #0f7bff;
+  color: white;
+  font-weight: 600;
+}
+
+button.secondary {
+  background: #dce9f8;
+  color: #12233d;
+}
+
+button.danger {
+  background: #d32f2f;
+}
+
+button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.stacked-form {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.msg {
+  margin-top: 0.75rem;
+  font-size: 0.92rem;
+}
+
+.msg.ok {
+  color: #1e7f45;
+}
+
+.msg.err {
+  color: #b71c1c;
+}
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header-row button {
+  width: auto;
+  min-width: 120px;
+}
+
+.task-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.8rem;
+}
+
+.task-list li {
+  border: 1px solid #dfebf8;
+  border-radius: 8px;
+  padding: 0.9rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 90px;
+}
+
+@media (max-width: 720px) {
+  .header-row,
+  .task-list li {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .actions {
+    flex-direction: row;
+  }
+}
